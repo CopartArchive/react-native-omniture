@@ -12,7 +12,7 @@ RNOmniture.trackAction('anyString', {yourContextDataObj})
 Adobe Android & iOS Mobile APIs exist for native android and iOS. So, exposing the same for React Native.
 
 ## Installation
-npm install --save github:vivekparekh8/react-native-omniture <br />
+npm install --save github:copartit/react-native-omniture <br />
 Get libs for both from https://github.com/Adobe-Marketing-Cloud/mobile-services <br />
 - For android, add your respective ADBMobileConfig.json for configuring your project under android/app/src/main/assets/
 - For iOS
@@ -36,3 +36,9 @@ Let people know how they can dive into the project, include important links to t
 ## License
 
 A short snippet describing the license (MIT, Apache, etc.)
+
+## Versions
+    1.1.0
+        - Updated Android Mobile Library to https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.18.1-Android
+        - Updated iOS Mobile Library to https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.19.1-iOS
+        - Update iOS deployment target to iOS 10.3
