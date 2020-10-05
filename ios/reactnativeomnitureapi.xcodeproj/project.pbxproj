@@ -23,7 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2DDB46A51DCA7ED500396D0B /* libreactnativeomnitureapi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libreactnativeomnitureapi.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DDB46A51DCA7ED500396D0B /* libRNOmniture.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNOmniture.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DDB46C11DCA80C700396D0B /* reactnativeomnitureapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reactnativeomnitureapi.h; sourceTree = "<group>"; };
 		2DDB46C21DCA80C700396D0B /* reactnativeomnitureapi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reactnativeomnitureapi.m; sourceTree = "<group>"; };
 		2DDB46C81DCA84A300396D0B /* ADBMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADBMobile.h; sourceTree = "<group>"; };
@@ -54,7 +54,7 @@
 		2DDB46A61DCA7ED500396D0B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2DDB46A51DCA7ED500396D0B /* libreactnativeomnitureapi.a */,
+				2DDB46A51DCA7ED500396D0B /* libRNOmniture.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,7 +83,7 @@
 			);
 			name = reactnativeomnitureapi;
 			productName = reactnativeomnitureapi;
-			productReference = 2DDB46A51DCA7ED500396D0B /* libreactnativeomnitureapi.a */;
+			productReference = 2DDB46A51DCA7ED500396D0B /* libRNOmniture.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -243,8 +243,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RNOmniture;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -262,7 +263,7 @@
 					"$(PROJECT_DIR)",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RNOmniture;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
