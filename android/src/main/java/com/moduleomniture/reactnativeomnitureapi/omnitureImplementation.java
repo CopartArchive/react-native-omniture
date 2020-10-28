@@ -2,6 +2,7 @@ package com.moduleomniture.reactnativeomnitureapi;
 
 
 import android.widget.Toast;
+import android.app.Activity;
 
 import com.adobe.mobile.Analytics;
 import com.adobe.mobile.Config;
@@ -12,6 +13,7 @@ import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableMapKeySetIterator;
 import com.facebook.react.bridge.ReadableType;
+import com.facebook.react.bridge.LifecycleEventListener;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,10 +25,31 @@ import java.util.List;
  * Created by vivekparekh on 10/26/16.
  */
 public class omnitureImplementation extends ReactContextBaseJavaModule {
+    
+    private final Activity currentActivity = getCurrentActivity();
+    private final LifecycleEventListener mLifecycleEventListener = new LifecycleEventListener() {
+        @Override
+        public void onHostResume() {
+            Config.collectLifecycleData(currentActivity);
+        }
+
+        @Override
+        public void onHostPause() {
+            Config.pauseCollectingLifecycleData();
+        }
+
+        @Override
+        public void onHostDestroy() {
+        }
+    };
+    
     public omnitureImplementation(ReactApplicationContext reactApplicationContext){
         super(reactApplicationContext);
         initAnalytics();
+        reactApplicationContext.addLifecycleEventListener(mLifecycleEventListener);
+
     }
+    
     private void initAnalytics(){
         try {
 //            InputStream configInput = Configuration.CHECK_URL.equalsIgnoreCase("QA") ? getAssets().open("ADBMobileConfig_QA.json") : getAssets().open("ADBMobileConfig_PROD.json");
@@ -40,6 +63,7 @@ public class omnitureImplementation extends ReactContextBaseJavaModule {
         Config.setContext(getReactApplicationContext());
         Config.setDebugLogging(true);
     }
+    
     private List<Object> recursivelyDeconstructReadableArray(ReadableArray readableArray) {
         List<Object> deconstructedList = new ArrayList<>(readableArray.size());
         for (int i = 0; i < readableArray.size(); i++) {
@@ -69,6 +93,7 @@ public class omnitureImplementation extends ReactContextBaseJavaModule {
         }
         return deconstructedList;
     }
+    
     private HashMap<String, Object> convert(ReadableMap readableMap) {
             ReadableMapKeySetIterator iterator = readableMap.keySetIterator();
             HashMap<String, Object> deconstructedMap = new HashMap<>();
